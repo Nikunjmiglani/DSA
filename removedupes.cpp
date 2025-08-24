@@ -44,22 +44,20 @@ int main() {
 
 using namespace std;
 
-void removeDuplicatesOptimized(vector<int>& arr) {
-    if (arr.empty()) return;
+ int removeDuplicates(vector<int>& arr) {
+        if(arr.empty()) 
+        return 0;
+        int ind =1;
 
-    int ind = 1;  // Pointer for the next unique element position
-    
-    // Loop through the array, starting from the second element
-    for (int i = 1; i < arr.size(); i++) {
-        if (arr[i] != arr[i - 1]) {  // Found a unique element
-            arr[ind] = arr[i];  // Place it in the next unique position
-            ind++;
+        for(int i =1;i<arr.size();i++){
+            if(arr[i] != arr[i-1]){
+                arr[ind] = arr[i];
+                ind++;
+            }
         }
+        arr.resize(ind);
+        return ind;
     }
-    
-    // Resize the array to remove elements after the last unique one
-    arr.resize(ind);
-}
 
 int main() {
     vector<int> arr = {1, 1, 2, 2, 3, 3, 3};
@@ -73,4 +71,10 @@ int main() {
     
     return 0;
 }
+
+
+    
+    return 0;
+}
+
 
