@@ -1,33 +1,31 @@
-#include <bits/stdc++.h>
-using namespace std;
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        sort(nums1.begin(), nums1.end());
+        sort(nums2.begin(), nums2.end());
+        
+        int i = 0, j = 0;
+        int n = nums1.size();
+        int m = nums2.size();
+        vector<int> ans;
 
-vector<int> intersectedarray(vector<int> a, vector<int> b) { //assumes sorted array is sorted not give then sort first
-    /*
-     sort(nums1.begin(), nums1.end());
-     sort(nums2.begin(), nums2.end());
-    */
-    int i = 0; 
-    int j = 0;
-    int n = a.size();
-    int m = b.size();
-    vector<int> ans;
-
-    while (i < n && j < m) {
-        if (a[i] < b[j]) {
-            i++;
-        }
-        else if (b[j] < a[i]) {
-            j++;
-        }
-        else { 
-            if (ans.empty() || ans.back() != a[i]) {
-                ans.push_back(a[i]);
+        while (i < n && j < m) {
+            if (nums1[i] < nums2[j]) {
+                i++;
             }
-            i++;
-            j++;
+            else if (nums2[j] < nums1[i]) {
+                j++;
+            }
+            else {
+                if (ans.empty() || ans.back() != nums1[i]) {
+                    ans.push_back(nums1[i]);
+                }
+                i++;
+                j++;
+            }
         }
+        return ans;
     }
-    return ans;
-}
+};
 
 
