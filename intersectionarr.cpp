@@ -7,7 +7,7 @@ vector<int> intersectedarray(vector<int> a, vector<int> b) { //assumes sorted ar
      sort(nums2.begin(), nums2.end());
     */
     int i = 0; 
-    j = 0;
+    int j = 0;
     int n = a.size();
     int m = b.size();
     vector<int> ans;
@@ -29,4 +29,5 @@ vector<int> intersectedarray(vector<int> a, vector<int> b) { //assumes sorted ar
     }
     return ans;
 }
+
 
